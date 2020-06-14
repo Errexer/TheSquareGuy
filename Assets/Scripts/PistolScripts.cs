@@ -38,6 +38,7 @@ public class PistolScripts : MonoBehaviour
             //creo una nueva posicion basandome en la del TheSquareGuy y le sumo 1 valor en eje X
             var newPosition = new Vector3(gObj.transform.position.x + 0.8f, gObj.transform.position.y, gObj.transform.position.z);
          
+         //mueve la pistola a donde esta el SquareGuy
             transform.position = Vector3.MoveTowards(transform.position, newPosition, 1);
     }
 }
