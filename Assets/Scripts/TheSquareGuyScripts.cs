@@ -51,9 +51,13 @@ public class TheSquareGuyScripts : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            if(canJump == true){
-                     GetComponent <Rigidbody2D>().AddForce (new Vector2 (0,fuerzaSalto));
-                    canJump = false;
+            if (canJump == true)
+            {
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, fuerzaSalto));
+                canJump = false;
+            }
+            else {
+                Debug.Log("El mono no puede canJump " + canJump);
             }
             
            
@@ -74,12 +78,15 @@ public class TheSquareGuyScripts : MonoBehaviour
      //Detecta cuando hay collision con el suelo
     void OnCollisionEnter2D(Collision2D collision)
     {   
-        Debug.Log("Verificando Colision");
+        Debug.Log("Verificando Colision con el Suelo " + collision.gameObject.tag + " canJump: " +canJump);
 
         if (collision.gameObject.tag == "Floor")
-        {   
+        {
             Debug.Log("canJump en true!");
             canJump = true;
+        }
+        else {
+            Debug.Log("canJump en False!");
         }
     }
 
